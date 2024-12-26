@@ -1,0 +1,57 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main()
+{
+string Account_No;
+int Channels, BSC;
+double Amount;
+char Customer_Code;
+cout << "Enter your account number" << endl;
+cin >> Account_No;
+cout << "Enter Business or Residential, (R) or (r) for Residential and (B) or (b)
+for business..." <<endl;
+cin >> Customer_Code;
+if(Customer_Code == 'R' || Customer_Code == 'r'){
+cout << "Number of premium channels?" << endl;
+cin >> Channels;
+const double processing_fee= 4.50;
+const double service_fee= 20.50;
+const double Premium_channel= 7.50;
+Amount = (Premium_channel * Channels) + service_fee +
+processing_fee;
+cout << fixed << setprecision(2);
+cout << "The amount for " << Channels << " Premium channels is $"
+<< Amount << " ." << endl;
+}
+else if(Customer_Code== 'B' || Customer_Code== 'b'){
+cout << "Please enter the number of basic service Connections?" <<
+endl;
+cin >> BSC;
+cout << "Number of premium channels?" << endl;
+cin >> Channels;
+const double processing_fee= 15.00;
+const double service_fee= 75.00;
+const double Extra_Connection_Cost= 5.00;
+const double Premium_channel= 50.00;
+if(BSC <= 10){
+Amount = processing_fee + service_fee + (Premium_channel *
+Channels);
+cout<< "The amount for " << BSC << " basic service Connections
+and " << Channels << " Premium channels is $" << Amount << " ." << endl;
+}
+else{
+Amount = processing_fee + service_fee + ((BSC - 10) *
+Extra_Connection_Cost) +(Premium_channel * Channels);
+cout << fixed << setprecision(2);
+cout << "The amount for " << BSC << " basic service
+Connections and " << Channels << " Premium channels is $" << Amount << " ." <<
+endl;
+}
+}
+else{
+cout << "Invalid Customer code, please enter only ('R' or 'r') for
+residential and ('B' or 'b') for business..." << endl;
+}
+return 0;
+}
